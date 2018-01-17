@@ -11,15 +11,29 @@
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                        <div class="form-group{{ $errors->has('firstName') ? ' has-error' : '' }}">
+                            <label for="firstName" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="firstName" type="text" class="form-control" name="firstName" value="{{ old('firstNames') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('firstName'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('firstName') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('lastName') ? ' has-error' : '' }}">
+                            <label for="lastName" class="col-md-4 control-label">Last Name</label>
+
+                            <div class="col-md-6">
+                                <input id="lastName" type="text" class="form-control" name="lastName" value="{{ old('lastName') }}" required autofocus>
+
+                                @if ($errors->has('lastName'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('lastName') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -60,6 +74,36 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('phoneNumber') ? ' has-error' : '' }}">
+                            <label for="phoneNumber" class="col-md-4 control-label">Phone Number</label>
+
+                            <div class="col-md-6">
+                                <input id="phoneNumber" type="number" class="form-control" name="phoneNumber" value="{{ old('phoneNumber') }}" required autofocus>
+
+                                @if ($errors->has('phoneNumber'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phoneNumber') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
