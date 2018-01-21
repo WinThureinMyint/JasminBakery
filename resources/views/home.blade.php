@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                        <a href="{{ url('/products') }}">Products Page</a>
                 </div>
             </div>
         </div>
