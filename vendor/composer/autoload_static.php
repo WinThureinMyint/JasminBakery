@@ -79,6 +79,10 @@ class ComposerStaticInit2d8a5bcd07812fe8e65e67095984ce1e
         array (
             'Illuminate\\' => 11,
         ),
+        'G' => 
+        array (
+            'Gloudemans\\Shoppingcart\\' => 24,
+        ),
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
@@ -232,6 +236,10 @@ class ComposerStaticInit2d8a5bcd07812fe8e65e67095984ce1e
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Gloudemans\\Shoppingcart\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gloudemans/shoppingcart/src',
+        ),
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
@@ -342,18 +350,21 @@ class ComposerStaticInit2d8a5bcd07812fe8e65e67095984ce1e
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\a' => __DIR__ . '/../..' . '/app/a.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
@@ -1257,6 +1268,16 @@ class ComposerStaticInit2d8a5bcd07812fe8e65e67095984ce1e
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'Gloudemans\\Shoppingcart\\CanBeBought' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/CanBeBought.php',
+        'Gloudemans\\Shoppingcart\\Cart' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Cart.php',
+        'Gloudemans\\Shoppingcart\\CartItem' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/CartItem.php',
+        'Gloudemans\\Shoppingcart\\CartItemOptions' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/CartItemOptions.php',
+        'Gloudemans\\Shoppingcart\\Contracts\\Buyable' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Contracts/Buyable.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\CartAlreadyStoredException' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Exceptions/CartAlreadyStoredException.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\InvalidRowIDException' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Exceptions/InvalidRowIDException.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\UnknownModelException' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Exceptions/UnknownModelException.php',
+        'Gloudemans\\Shoppingcart\\Facades\\Cart' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/Facades/Cart.php',
+        'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider' => __DIR__ . '/..' . '/gloudemans/shoppingcart/src/ShoppingcartServiceProvider.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -3470,7 +3491,6 @@ class ComposerStaticInit2d8a5bcd07812fe8e65e67095984ce1e
         'Symfony\\Component\\Debug\\FatalErrorHandler\\FatalErrorHandlerInterface' => __DIR__ . '/..' . '/symfony/debug/FatalErrorHandler/FatalErrorHandlerInterface.php',
         'Symfony\\Component\\Debug\\FatalErrorHandler\\UndefinedFunctionFatalErrorHandler' => __DIR__ . '/..' . '/symfony/debug/FatalErrorHandler/UndefinedFunctionFatalErrorHandler.php',
         'Symfony\\Component\\Debug\\FatalErrorHandler\\UndefinedMethodFatalErrorHandler' => __DIR__ . '/..' . '/symfony/debug/FatalErrorHandler/UndefinedMethodFatalErrorHandler.php',
-        'Symfony\\Component\\EventDispatcher\\ContainerAwareEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/ContainerAwareEventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcherInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/TraceableEventDispatcherInterface.php',
         'Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener' => __DIR__ . '/..' . '/symfony/event-dispatcher/Debug/WrappedListener.php',
@@ -3886,6 +3906,7 @@ class ComposerStaticInit2d8a5bcd07812fe8e65e67095984ce1e
         'Symfony\\Thanks\\Command\\ThanksCommand' => __DIR__ . '/..' . '/symfony/thanks/src/Command/ThanksCommand.php',
         'Symfony\\Thanks\\Thanks' => __DIR__ . '/..' . '/symfony/thanks/src/Thanks.php',
         'TestProductsSeeder' => __DIR__ . '/../..' . '/database/seeds/TestProductsSeeder.php',
+        'TestUsersSeeder' => __DIR__ . '/../..' . '/database/seeds/TestUsersSeeder.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',

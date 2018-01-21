@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::view('products','products');
 Route::get('/products','ProductsController@get');
+
+Route::post('/cart','CartController@add');

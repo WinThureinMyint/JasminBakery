@@ -46,7 +46,15 @@
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <a href="javascript:void(0);" class="btn btn-danger">Add to cart</a>
+                                                    <form method="POST" action="{{url('cart')}}">
+                                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <button type="submit" class="btn btn-danger add-to-cart">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            Add to cart
+                                                        </button>
+                                                    </form>
+                                                    {{--<a href="javascript:void(0);" class="btn btn-danger">Add to cart</a>--}}
                                                     {{--      <a href="javascript:void(0);" class="btn btn-info">More info</a>--}}
                                                 </div>
 
