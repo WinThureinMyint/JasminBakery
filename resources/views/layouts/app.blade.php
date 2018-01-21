@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+
     @yield('link')
 </head>
 <body>
@@ -37,12 +40,20 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+                        <li>
+                            <a href="{{ url('/cartView') }}">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                @if( Cart::count()>0 )
+                                    ({{ Cart::count() }})
+                                @endif
+                            </a>
+                        </li>
                         <li><a href="{{ url('/products') }}">Products</a></li>
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>

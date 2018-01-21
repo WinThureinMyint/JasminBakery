@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 
 use Illuminate\Support\Facades\Request;
+
 use Cart;
 
 class CartController extends Controller
@@ -24,7 +25,7 @@ class CartController extends Controller
                         'id' => $product_id,
                         'name' => $product->name,
                         'image' => $product->image,
-                        'gty' => 1,
+                        'qty' => 1,
                         'price' => $product->price
                     ]
                 );
@@ -32,8 +33,8 @@ class CartController extends Controller
             // Cart::add($product);
 
             $cart = Cart::content();
-            return $cart;
-            // return redirect('/products');
+           // return $cart;
+             return redirect('/products');
             // return view('cart', arßray('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'));
         }
     }

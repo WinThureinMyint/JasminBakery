@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('link')
     <link href="{{ asset('css/products.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 @endsection
 @section('content')
     <div class="container">
@@ -46,7 +45,15 @@
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <a href="javascript:void(0);" class="btn btn-danger">Add to cart</a>
+                                                    <form method="POST" action="{{url('cart')}}">
+                                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <button type="submit" class="btn btn-danger add-to-cart">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            Add to cart
+                                                        </button>
+                                                    </form>
+                                                    {{--<a href="javascript:void(0);" class="btn btn-danger">Add to cart</a>--}}
                                                     {{--      <a href="javascript:void(0);" class="btn btn-info">More info</a>--}}
                                                 </div>
 
