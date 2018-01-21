@@ -1,9 +1,9 @@
 <?php
 
-namespace Jasmin Bakery\Http\Controllers;
+namespace JasminBakery\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Jasmin Bakery\Product;
+use JasminBakery\Product;
 class ProductsController extends Controller
 {
     public function get()

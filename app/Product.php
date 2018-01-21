@@ -1,6 +1,6 @@
 <?php
 
-namespace Jasmin Bakery;
+namespace JasminBakery;
 
 use Illuminate\Database\Eloquent\Model;
 
