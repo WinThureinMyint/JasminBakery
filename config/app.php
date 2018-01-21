@@ -141,7 +141,6 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -172,7 +171,6 @@ return [
         /*
          * Application Service Providers...
          */
-
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -193,7 +191,7 @@ return [
     */
 
     'aliases' => [
-        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
