@@ -27,3 +27,7 @@ Route::get('/products','ProductsController@get');
 Route::post('/cart','CartController@add');
 
 Route::view('/cartView','cartView');
+
+//Route::post('/cartEdit','CartController@cart');
+
+Route::get('/cartEdit/{product_id}/{decrease}','CartController@cart');
