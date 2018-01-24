@@ -31,3 +31,8 @@ Route::view('/cartView','cartView');
 //Route::post('/cartEdit','CartController@cart');
 
 Route::get('/cartEdit','CartController@cart')->name('cartEdit');
+
+Route::get('/clearCart', function (){
+    Cart::destroy();
+    return redirect('cartView');
+});
