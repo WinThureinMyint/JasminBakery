@@ -30,4 +30,4 @@ Route::view('/cartView','cartView');
 
 //Route::post('/cartEdit','CartController@cart');
 
-Route::get('/cartEdit/{product_id}/{decrease}','CartController@cart');
+Route::get('/cartEdit','CartController@cart')->name('cartEdit');
