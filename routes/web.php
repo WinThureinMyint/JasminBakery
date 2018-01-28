@@ -39,3 +39,9 @@ Route::get('/clearCart', function (){
 
 Route::get('/checkout','CartController@checkout');
 
+Route::resource('/orderHistory','OrderController');
+
+/*Route::resource('/orderHistory','OrderController',['parameters' => [
+    'user' => '1'
+]]);*/
+

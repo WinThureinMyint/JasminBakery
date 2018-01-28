@@ -78,6 +78,13 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                        <a href="{{ URL::to('orderHistory/'.Auth::id()) }}">
+                                            Order History
+                                        </a>
+
+
+                                    </li>
                                 </ul>
                             </li>
                         @endguest
