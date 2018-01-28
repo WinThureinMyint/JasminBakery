@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use App\Product;
 
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
 use Cart;
@@ -53,6 +55,7 @@ class CartController extends Controller
                 $item = Cart::get($rowId->keys()->first());
                 Cart::update($rowId->keys()->first(), $item->qty - 1);
             }
+            //remove the item
             if(Request::get('product_id')&&(Request::get('remove_item')==1)){
                 $rowId = Cart::search(function ($cartItem, $rowId) {
                     return $cartItem->id === Request::get('product_id');
@@ -60,8 +63,38 @@ class CartController extends Controller
 
                 Cart::remove($rowId->keys()->first());
             }
-            $cart = Cart::content();
-
             return redirect('/cartView');
+        }
+        public function checkout(){
+            $id = Auth::id();
+            $items=Cart::content();
+            $total=0;$orderID=0;
+            //return Order::all();
+            if(count(Order::all())) {
+                $orderID = Order::orderBy('orderID', 'desc')->first()->orderID +1;
+            }else{
+                $orderID = 1;
+            }
+            //return $orderID;
+            foreach ($items as $item){
+                //return $item->rowId;
+                $total += $item->subtotal;
+                Order::create([
+                    'orderID'=>$orderID,
+                    'userID' => $id,
+                    'cartRowID' => $item->rowId,
+                    'itemID' => $item->id,
+                    'itemName' => $item->name,
+                    'qty' => $item->qty,
+                    'price' => $item->price,
+                    'subtotal' => $item->subtotal,
+                ]);
+
+
+            }
+            Cart::destroy();
+
+            return view('order')->with('items',$items)->with('total',$total);
+
         }
     }

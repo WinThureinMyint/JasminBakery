@@ -36,3 +36,6 @@ Route::get('/clearCart', function (){
     Cart::destroy();
     return redirect('cartView');
 });
+
+Route::get('/checkout','CartController@checkout');
+
