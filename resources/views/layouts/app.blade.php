@@ -46,19 +46,21 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        <li>
-                            <a href="{{ url('/cartView') }}">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
-                                @if( Cart::count()>0 )
-                                    ({{ Cart::count() }})
-                                @endif
-                            </a>
-                        </li>
-                        <li><a href="{{ url('/products') }}">Products</a></li>
+
+
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                                <li>
+                                    <a href="{{ url('/cartView') }}">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                                        @if( Cart::count()>0 )
+                                            ({{ Cart::count() }})
+                                        @endif
+                                    </a>
+                                </li>
+                                <li><a href="{{ url('/products') }}">Products</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->firstName }} <span class="caret"></span>

@@ -56,7 +56,7 @@
                         <tr>
                             <td colspan="2"></td>
                             <td>Cart Total</td>
-                            <td colspan="2">${{Cart::total()}}</td>
+                            <td colspan="2">${{Cart::subtotal()}}</td>
                         </tr>
                         <tr>
                             <td colspan="3"></td>
