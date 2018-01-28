@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -50,7 +54,8 @@ class OrderController extends Controller
     {
         $orders = Order::all()
                     ->where('userID',$id);
-        return "show";
+        //return $orders;
+        return view('orderHistory')->with('orders',$orders);
     }
 
     /**
