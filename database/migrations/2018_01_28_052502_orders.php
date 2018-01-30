@@ -22,6 +22,7 @@ class Orders extends Migration
             $table->integer('qty');
             $table->double('price');
             $table->double('subtotal');
+            $table->boolean('returnOrder');
             $table->timestamps();
         });
     }

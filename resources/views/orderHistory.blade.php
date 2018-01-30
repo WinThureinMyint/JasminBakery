@@ -21,6 +21,7 @@
                             <td class="quantity">Quantity</td>
                             <td class="total">Sub Total</td>
                             <td>Date</td>
+                            <td></td>
                         </tr>
                         </thead>
                         <tbody>
@@ -53,6 +54,15 @@
                                 </td>
                                 <td class="cart_delete">
                                     <p>{{$item->updated_at}}</p>
+                                </td>
+                                <td>
+                                    <form method="GET" action="{{url('orderHistory/'.$item->cartRowID.'/edit')}}">
+                                        <input type="hidden" name="id" value="{{$item->cartRowID}}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <button type="submit" class="btn btn-danger">
+                                            Return
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -53,7 +55,8 @@ class OrderController extends Controller
     public function show($id)
     {
         $orders = Order::all()
-                    ->where('userID',$id);
+                    ->where('userID',$id)
+                    ->where('returnOrder',0);
         //return $orders;
         return view('orderHistory')->with('orders',$orders);
     }
@@ -66,8 +69,11 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
-        return "edit";
+        DB::table('orders')
+            ->where('cartRowID', $id)
+            ->update(['returnOrder' => 1]);
+
+        return redirect('orderHistory/'.Auth::id());
     }
 
     /**
