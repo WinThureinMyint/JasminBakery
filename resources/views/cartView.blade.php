@@ -30,7 +30,8 @@
                                 </td>
                                 <td class="cart_description">
                                     <h4>{{$item->name}}</h4>
-                                    <p>Item ID: {{$item->id}}</p>
+                                    <p><img src="{{asset('images/'.$item->image)}}"> </p>
+                                    {{--<p><img src="{{asset('images/'.$product->photo->file)}}"> </p>--}}
                                 </td>
                                 <td class="cart_price">
                                     <p>${{$item->price}}</p>

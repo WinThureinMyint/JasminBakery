@@ -23,7 +23,9 @@ class OrderController extends Controller
     {
         $user = Auth::user();
         $product = Product::all();
-        return view('user/userOrder',compact('user','product'));
+        $orders = Order::all()
+            ->where('returnOrder',0);
+        return view('user/userOrder',compact('user','product','orders'));
     }
 
     public function return()
