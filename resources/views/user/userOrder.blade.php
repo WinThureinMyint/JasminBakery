@@ -40,7 +40,7 @@
                                         </td>
                                         <td class="cart_description">
                                             <h4>{{$item->itemName}}</h4>
-                                            <p>Item ID: {{$item->itemID}}</p>
+                                            <p><img src="{{ asset('images/'.$item->image) }}" class="img-responsive" style="width: 100px; height: 80px;"></p>
                                         </td>
                                         <td class="cart_price">
                                             <p>${{$item->price}}</p>

@@ -57,3 +57,7 @@ Route::resource('user/order','OrderController');
 
 Route::get('user/returnProduct','OrderController@return');
 
+Route::get('admin/monthlySaleStatus','HomeController@chart');
+
+Route::get('admin/orderList','HomeController@orderlist');
+

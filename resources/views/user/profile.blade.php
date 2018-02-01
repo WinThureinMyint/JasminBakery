@@ -29,7 +29,7 @@
                                 <tr>
 
                                     <td>{!! Form::label('password','Password') !!}</td>
-                                    <td><input type="password" value="($user->password)"> </td>
+                                    <td>{!! Form::hidden($user->password) !!}Hidden!! </td>
                                 </tr>
                                 <tr>
 

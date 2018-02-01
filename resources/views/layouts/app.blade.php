@@ -84,13 +84,6 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ URL::to('orderHistory/'.Auth::id()) }}">
-                                        Order History
-                                    </a>
-
-
-                                </li>
-                                <li>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
