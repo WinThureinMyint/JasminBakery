@@ -6,11 +6,10 @@ use App\Order;
 use App\Product;
 
 
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
+
 
 use Cart;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -21,7 +20,7 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        update/ add new item to cart
+        /*update/ add new item to cart*/
             $input = $request->all();
 
             if($file = $request->file('photo_id')) {
