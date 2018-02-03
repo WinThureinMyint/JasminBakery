@@ -9,7 +9,9 @@ use App\Product;
 
 
 use Cart;
-use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class CartController extends Controller
 {
