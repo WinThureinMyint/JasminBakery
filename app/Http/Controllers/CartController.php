@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 
-
-
-
 use Cart;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
