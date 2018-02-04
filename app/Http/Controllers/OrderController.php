@@ -21,11 +21,19 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $product = Product::all();
+        $id = Auth::id();
+
+        /*$product = Product::all();
+
         $orders = Order::all()
-            ->where('returnOrder',0);
-        return view('user/userOrder',compact('user','product','orders'));
+
+            ->where('userID',$id)
+            ->where('returnOrder',0);*/
+        $orders = DB::table('orders')
+                ->join('products','orders.itemID','=','products.id')
+                ->join('photos','products.photo_id','=','photos.id')
+                ->get();
+        return view('user/userOrder',compact('user','orders'));
     }
 
     public function return()
