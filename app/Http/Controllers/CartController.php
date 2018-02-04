@@ -6,7 +6,6 @@ use App\Order;
 use App\Product;
 
 use Cart;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
@@ -17,7 +16,7 @@ class CartController extends Controller
         $this->middleware('auth');
     }
 
-    public function add(Request $request)
+    public function add(\Illuminate\Http\Request $request)
     {
         /*update/ add new item to cart*/
             $input = $request->all();
@@ -37,7 +36,7 @@ class CartController extends Controller
                     [
                         'id' => $product_id,
                         'name' => $product->name,
-                        'image' => $product->$input,
+                        'image' => $product->image,
                         'qty' => 1,
                         'price' => $product->price
                     ]
