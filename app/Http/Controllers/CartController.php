@@ -23,7 +23,7 @@ class CartController extends Controller
 
             if($file = $request->file('photo_id')) {
                 $name = time() . $file->getClientOriginalName();
-                $file->move('images', $name);
+                $file->move('image', $name);
                 $photo = Photo::create(['file'=>$name]);
                 $input['photo_id'] = $photo->id;
             }
@@ -36,12 +36,13 @@ class CartController extends Controller
                     [
                         'id' => $product_id,
                         'name' => $product->name,
-                        'image' => $product->image,
+                        'image' => $product->photo_id,
                         'qty' => 1,
                         'price' => $product->price
                     ]
                 );
             }
+//            dd(Cart::content());
              return redirect('/products');
         }
     public function cart() {

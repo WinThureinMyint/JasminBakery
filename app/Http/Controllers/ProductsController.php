@@ -50,7 +50,7 @@ class ProductsController extends Controller
             $name = time() . $file->getClientOriginalName();
 
 
-            $file->move('images', $name);
+            $file->move('image', $name);
 
             $photo = Photo::create(['file'=>$name]);
 
