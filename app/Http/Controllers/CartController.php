@@ -8,6 +8,7 @@ use App\Product;
 use Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use function Sodium\compare;
 
 class CartController extends Controller
 {
@@ -73,7 +74,7 @@ class CartController extends Controller
 
             Cart::remove($rowId->keys()->first());
         }
-        return redirect('/cartView');
+        return redirect('/cartView',compact('user','orders'));
     }
     public function checkout(){
         $id = Auth::id();

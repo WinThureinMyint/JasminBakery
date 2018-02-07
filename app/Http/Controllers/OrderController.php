@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\Product;
+use App\Rorder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -39,10 +40,26 @@ class OrderController extends Controller
     public function return()
     {
         $user = Auth::user();
-        $product = Product::all();
+        $product = DB::table('products')->pluck('name')->all();
         return view('user/returnProduct',compact('user','product'));
     }
 
+    public function rOrder()
+    {
+//        $id = Auth::id();
+//
+//        /*$product = Product::all();
+//
+//        $orders = Order::all()
+//
+//            ->where('userID',$id)
+//            ->where('returnOrder',0);*/
+        $order = DB::table('rorders')
+            ->join('products','products.id','=','rorders.id')
+            ->get();
+//        $order = Rorder::all();
+        return view('user/returnOrder',compact('order'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -62,7 +79,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//         dd($request->all());
+       $order = Rorder::create($request->all());
+        return redirect('user/returnOrder');
     }
 
     /**

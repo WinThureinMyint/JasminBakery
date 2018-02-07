@@ -12,11 +12,11 @@
                         <table class="table">
                             <tr>
                                 <td>{!! Form::label('name','Product Name:') !!}</td>
-                                <td>{!! Form::select('name', array(1 => 'Coconut Bread', 0=> 'Egg Cake') ,['class' => 'form_control'] ) !!}</td>
+                                <td>{!! Form::select('name', ['' => 'Choose Product'] + $product ,['class' => 'form_control'] ) !!}</td>
                             </tr>
                             <tr>
-                                <td>{!! Form::label('name','Quantity:') !!}</td>
-                                <td>{!! Form::text('name',null ,['class' => 'form_control'] ) !!}
+                                <td>{!! Form::label('qty','Quantity:') !!}</td>
+                                <td>{!! Form::text('qty',null ,['class' => 'form_control'] ) !!}
                                     <br> *Please fill Number only
                                 </td>
                             </tr>

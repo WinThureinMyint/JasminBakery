@@ -5,8 +5,7 @@
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="/home">Home</a></li>
-                    <li class="active">Shopping Cart</li>
+                    <li class="active">My Shopping Cart</li>
                 </ol>
             </div>
             <div class="table-responsive cart_info">
@@ -15,7 +14,7 @@
                         <thead>
                         <tr class="cart_menu">
                             <td class="image">Item</td>
-                            <td class="description"></td>
+                            <td class="description">Product Name</td>
                             <td class="price">Price</td>
                             <td class="quantity">Quantity</td>
                             <td class="total">Total</td>
@@ -26,11 +25,10 @@
                         @foreach(Cart::content() as $item)
                             <tr>
                                 <td class="cart_product">
-                                   <br>{{ $loop->index+1 }}
+                                   {{ $loop->index+1 }}
                                 </td>
                                 <td class="cart_description">
-                                    <h4>{{$item->name}}</h4>
-                                    <p><img src="{{asset('image/'.$item->image)}}"> </p>
+                                    {{$item->name}}
                                     {{--<p><img src="{{asset('images/'.$product->photo->file)}}"> </p>--}}
                                 </td>
                                 <td class="cart_price">
@@ -58,12 +56,14 @@
                             <td colspan="2"></td>
                             <td>Cart Total</td>
                             <td colspan="2">${{Cart::subtotal()}}</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td colspan="3"></td>
 
                             <td colspan="2" ><div align="center"><a class="btn btn-danger update" href="{{url('clearCart')}}">Clear Cart</a>
                                 <a class="btn btn-danger check_out" href="{{url('checkout')}}">Check Out</a></div></td>
+                            <td></td>
                         </tr>
                         @else
                             <p>You have no items in the shopping cart</p>

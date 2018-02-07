@@ -61,3 +61,5 @@ Route::get('admin/monthlySaleStatus','HomeController@chart');
 
 Route::get('admin/orderList','HomeController@orderlist');
 
+Route::get('user/returnOrder','OrderController@rOrder');
+

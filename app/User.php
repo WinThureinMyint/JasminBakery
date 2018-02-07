@@ -34,4 +34,9 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function rorder()
+    {
+        return $this->belongsTo('App\Rorder');
+    }
 }
