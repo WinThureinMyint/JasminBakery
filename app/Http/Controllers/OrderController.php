@@ -37,6 +37,12 @@ class OrderController extends Controller
         return view('user/userOrder',compact('user','orders'));
     }
 
+    public function preOrder()
+    {
+        $product = Product::all();
+        return view('user/preOrder',compact('product'));
+    }
+
     public function return()
     {
         $user = Auth::user();

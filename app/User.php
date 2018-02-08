@@ -39,4 +39,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Rorder');
     }
+
+    public function contact()
+    {
+        return $this->belongsTo('App\ContactUs');
+    }
 }

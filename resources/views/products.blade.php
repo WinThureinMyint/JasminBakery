@@ -4,10 +4,18 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 @endsection
 @section('content')
-    <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading ">
+                @if($product)
+                {!! Form::select('name', ['' => 'Choose Category'] + $product ,['class' => 'form_control'] ) !!}
+                @endif
+            </div>
+
+            <div class="container">
         <div class="row">
                     @foreach($products as $product)
-                        <div class="col-xs-12 col-md-12">
+                        <div class="col-xs-11 col-md-11">
                             <div class="prod-info-main prod-wrap clearfix">
                                 <div class="row">
 
@@ -86,6 +94,8 @@
                             <!-- end product -->
                         </div>
                     @endforeach
+        </div>
+    </div>
         </div>
     </div>
 @endsection

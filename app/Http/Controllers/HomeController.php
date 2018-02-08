@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ContactUs;
 use App\Order;
 use ConsoleTVs\Charts\Facades\Charts;
 use Illuminate\Http\Request;
@@ -53,5 +54,12 @@ class HomeController extends Controller
             ->labels(['One', 'Two', 'Three']);
 
         return view('admin/monthlySaleStatus', ['chart' => $chart]);
+    }
+
+    public function userTicket()
+    {
+        $contact = ContactUs::all();
+//        dd($contact);
+        return view('user/ticket',compact('contact'));
     }
 }

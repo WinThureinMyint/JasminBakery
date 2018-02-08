@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\ContactUs;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class ContactUsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('user/profile',compact('user'));
+        return view ('user/feedBack');
     }
 
-    public function cancel()
-    {
-        return view('user/profile');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -42,8 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = ContactUs::create($request->all());
-        return view('user/feedbacksuccess',compact('contact'));
+        //
     }
 
     /**
@@ -65,8 +58,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        return view('user/edit',compact('user'));
+        //
     }
 
     /**
@@ -78,10 +70,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
-        $input = $request->all();
-        $user->update($input);
-        return redirect('user/profile');    }
+        //
+    }
 
     /**
      * Remove the specified resource from storage.

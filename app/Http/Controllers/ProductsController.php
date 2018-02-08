@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Photo;
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\DB;
+
 class ProductsController extends Controller
 {
     public function __construct()
@@ -19,8 +21,13 @@ class ProductsController extends Controller
 
     public function get()
     {
-        $products=Product::all();
-        return view('products',['products'=>$products]);
+//        $orders = DB::table('orders')
+//            ->join('products','orders.itemID','=','products.id')
+//            ->join('photos','products.photo_id','=','photos.id')
+//            ->get();
+        $products = Product::all();
+        $product = DB::table('products')->pluck('category')->all();
+        return view('products',compact('product','products'));
     }
 
     /**

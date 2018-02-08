@@ -58,6 +58,8 @@
                         </a>
                     </li>
                     <li><a href="{{ url('/products') }}">Products</a></li>
+                    <li><a href="{{ url('/user/preOrder') }}">Pre-Order Products</a></li>
+                    <li><a href="{{ url('/user/feedBack') }}">Contact Us</a></li>
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
@@ -81,6 +83,11 @@
                                 <li>
                                     <a href="{{ url('/user/returnProduct') }}">
                                         Return Expired Product
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/user/ticket') }}">
+                                        My Submitted Ticket
                                     </a>
                                 </li>
                                 <li>
