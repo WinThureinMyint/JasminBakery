@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @section('link')
     <link href="{{ asset('css/products.css') }}" rel="stylesheet">
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 @endsection
 @section('content')
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
             <div class="panel-heading ">
                 @if($product)
-                {!! Form::select('name', ['' => 'Choose Category'] + $product ,['class' => 'form_control'] ) !!}
+                    {!! Form::select('name', ['' => 'Choose Category'] + $product ,['class' => 'form_control'] ) !!}
                 @endif
             </div>
 
             <div class="container">
-        <div class="row">
+                <div class="row">
                     @foreach($products as $product)
                         <div class="col-xs-11 col-md-11">
                             <div class="prod-info-main prod-wrap clearfix">
@@ -21,7 +21,8 @@
 
                                     <div class="col-md-5 col-sm-12 col-xs-12">
                                         <div class="product-image">
-                                            <img src="{{ asset('images/'.$product->photo->file) }}" class="img-responsive" style="width: 500px; height: 250px;">
+                                            <img src="{{ asset('images/'.$product->photo->file) }}"
+                                                 class="img-responsive" style="width: 500px; height: 250px;">
                                             <span class="tag2 {{ strtolower($product->tag) }}">
 							{{ $product->tag }}
 						</span>
@@ -79,7 +80,8 @@
                                                            // print_r($rating);
                                                         @endphp
                                                         @for($i=0;$i<5;$i++)
-                                                            <label for="stars-rating-{{$i}}"><i class="fa fa-star text-{{ $rating[$i] }}"></i></label>
+                                                            <label for="stars-rating-{{$i}}"><i
+                                                                        class="fa fa-star text-{{ $rating[$i] }}"></i></label>
                                                         @endfor
 
                                                     </div>
@@ -94,8 +96,8 @@
                             <!-- end product -->
                         </div>
                     @endforeach
-        </div>
-    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
