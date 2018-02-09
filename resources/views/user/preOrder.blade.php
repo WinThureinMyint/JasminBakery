@@ -35,6 +35,13 @@
 
                     <a href="#null" onclick="printContent('printTable')">Click to print table</a>
                     <button onClick="window.print()">Print this page</button>
+                    <button onclick="myFunction()">Try it</button>
+
+                    <script>
+                        function myFunction() {
+                            alert("I am an alert box!");
+                        }
+                    </script>
                     {{--@foreach($product as $product)--}}
                         {{--<div class="w3-row-padding">--}}
                             {{--<div class="w3-third w3-container w3-margin-bottom">--}}
