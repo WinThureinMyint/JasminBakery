@@ -11,36 +11,36 @@
 
                     <div class="panel-body">
                         {!! Form::open(['method' =>'POST', 'action' => 'ProductsController@store','files' => true]) !!}
-                        <table>
+                        <table class="table table-condensed">
                             <tr>
-                                <td>{!! Form::label('name','Product Name') !!}</td>
+                                <td>{!! Form::label('name',' Name') !!}</td>
                                 <td>{!! Form::text('name',null,['class' => 'form_control'] ) !!}</td>
                             </tr>
                             <tr>
-                                <td>{!! Form::label('price','Product Price') !!}</td>
+                                <td>{!! Form::label('price',' Price') !!}</td>
                                 <td>{!! Form::text('price',null,['class' => 'form_control'] ) !!}</td>
                             </tr><tr>
-                                <td>{!! Form::label('category','Product Category') !!}</td>
-                                <td>{!! Form::select('category',array([0 => 'Cake',1 => 'Bread',2 => 'Cookies']), 0 ,['class' => 'form_control'] ) !!}</td>
+                                <td>{!! Form::label('category','Category') !!}</td>
+                                <td>{!! Form::text('category',null,['class' => 'form_control'] ) !!}</td>
                             </tr>
                             <tr>
-                                <td>{!! Form::label('description','Product Description') !!}</td>
-                                <td>{!! Form::text('description',null,['class' => 'form_control'] ) !!}</td>
+                                <td>{!! Form::label('description',' Description') !!}</td>
+                                <td>{!! Form::textarea('description',null,['class' => 'form_control','rows' => '2', 'cols' => '40'] ) !!}</td>
                             </tr>
                             <tr>
                                 <td>{!! Form::label('tag','Product Tag') !!}</td>
                                 <td>{!! Form::text('tag',null,['class' => 'form_control'] ) !!}</td>
                             </tr>
                             <tr>
-                                <td>{!! Form::label('rating','Product Rating') !!}</td>
+                                <td>{!! Form::label('rating',' Rating') !!}</td>
                                 <td>{!! Form::select('rating',array([1 => '1',2 => '2',3 => '3',4 => '4',5 => '5',]), 0 ,['class' => 'form_control'] ) !!}</td>
                             </tr>
                             <tr>
-                                <td>{!! Form::label('status','Product Status') !!}</td>
+                                <td>{!! Form::label('status',' Status') !!}</td>
                                 <td>{!! Form::text('status',null,['class' => 'form_control'] ) !!}</td>
                             </tr>
                             <tr>
-                                <td>{!! Form::label('photo_id','Product Image') !!}</td>
+                                <td>{!! Form::label('photo_id',' Image') !!}</td>
                                 <td>{!! Form::file('photo_id',null,['class' => 'form_control'] ) !!}</td>
                             </tr>
                             <tr>

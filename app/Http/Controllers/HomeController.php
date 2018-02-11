@@ -55,11 +55,4 @@ class HomeController extends Controller
 
         return view('admin/monthlySaleStatus', ['chart' => $chart]);
     }
-
-    public function userTicket()
-    {
-        $contact = ContactUs::all();
-//        dd($contact);
-        return view('user/ticket',compact('contact'));
-    }
 }

@@ -65,7 +65,8 @@ Route::get('user/returnOrder','OrderController@rOrder');
 
 Route::get('user/preOrder','OrderController@preOrder');
 
-Route::get('user/feedBack','ContactUsController@index');
+Route::get('user/feedBack','ContactUsController@feedBack');
 
-Route::get('user/ticket','HomeController@userTicket');
+Route::resource('user/ticket','ContactUsController');
+
 

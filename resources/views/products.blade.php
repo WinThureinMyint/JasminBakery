@@ -6,11 +6,13 @@
 @section('content')
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
-            <div class="panel-heading ">
-                @if($product)
-                    {!! Form::select('name', ['' => 'Choose Category'] + $product ,['class' => 'form_control'] ) !!}
-                @endif
-            </div>
+            {{--<div class="panel-heading ">--}}
+                {{--@if($product)--}}
+                    {{--{!! Form::open(['method' =>'POST', 'action' => ['ProductsController@index'],'files' => true]) !!}--}}
+                    {{--{!! Form::select('name', ['' => 'Choose Category'] + $product ,['class' => 'form_control'] ) !!}--}}
+                    {{--{!! Form::submit('Go',['class'=>'form_control']) !!}--}}
+                {{--@endif--}}
+            {{--</div>--}}
 
             <div class="container">
                 <div class="row">

@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->char('tag',10);
             $table->integer('rating');
-            $table->integer('status');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

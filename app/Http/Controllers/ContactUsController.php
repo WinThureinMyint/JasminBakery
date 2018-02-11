@@ -15,9 +15,16 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        return view ('user/feedBack');
+        $contact = ContactUs::all();
+//        dd($contact);
+        return view('user/ticket',compact('contact'));
+
     }
 
+    public function feedBack()
+    {
+        return view ('user/feedBack');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -81,6 +88,7 @@ class ContactUsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ContactUs::findOrFail($id)->delete();
+        return redirect('user/ticket');
     }
 }
