@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\ContactUs;
 use App\Order;
+use App\PreOrder;
 use ConsoleTVs\Charts\Facades\Charts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -31,8 +33,26 @@ class HomeController extends Controller
 
     public function orderlist()
     {
-        $orders = Order::all();
+        $orders = DB::table('orders')
+            ->join('products','products.id','=','orders.orderID')
+            ->join('photos','products.photo_id','=','photos.id')
+//            ->join('users','orders.userID','=','orders.orderID')
+            ->get();
         return view('admin/orderList',compact('orders'));
+    }
+
+    public function preOrderList()
+    {
+        $preOrder = PreOrder::all();
+        return view('admin/preOrderList',compact('preOrder'));
+    }
+
+    public function returnOrderList()
+    {
+        $order = DB::table('rorders')
+            ->join('products','products.id','=','rorders.id')
+            ->get();
+        return view('admin/returnOrderList',compact('order'));
     }
 
     public function chart()

@@ -25,6 +25,12 @@ class ContactUsController extends Controller
     {
         return view ('user/feedBack');
     }
+
+    public function userFeedback()
+    {
+        $contact = ContactUs::all();
+        return view('admin/userFeedback',compact('contact'));
+    }
     /**
      * Show the form for creating a new resource.
      *

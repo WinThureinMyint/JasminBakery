@@ -5,7 +5,9 @@
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li class="active">Shopping Cart</li>
+                    <li class="active"><a href="{{url('admin/orderList')}}">Order List</a></li>
+                    <li><a href="{{url('admin/preOrderList')}}"> Pre-Order List</a></li>
+                    <li><a href="{{url('admin/returnOrderList')}}">Return Order List</a></li>
                 </ol>
             </div>
             <div class="table-responsive cart_info">
@@ -41,7 +43,7 @@
                                 </td>
                                 <td class="cart_description">
                                     {{$item->itemName}}
-                                    <img src="{{ asset('images/'.$item->image) }}" class="img-responsive" style="width: 100px; height: 80px;">
+                                    <img src="{{ asset('/images/'.$item->file) }}" class="img-responsive" style="width: 100px; height: 80px;">
                                 </td>
                                 <td class="cart_price">
                                     <p>${{$item->price}}</p>
@@ -58,15 +60,15 @@
                                 <td class="cart_delete">
                                     <p>{{$item->updated_at}}</p>
                                 </td>
-                                <td>
-                                    <form method="GET" action="{{url('orderHistory/'.$item->cartRowID.'/edit')}}">
-                                        <input type="hidden" name="id" value="{{$item->cartRowID}}">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button type="submit" class="btn btn-danger">
-                                            Return
-                                        </button>
-                                    </form>
-                                </td>
+                                {{--<td>--}}
+                                    {{--<form method="GET" action="{{url('orderHistory/'.$item->cartRowID.'/edit')}}">--}}
+                                        {{--<input type="hidden" name="id" value="{{$item->cartRowID}}">--}}
+                                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+                                        {{--<button type="submit" class="btn btn-danger">--}}
+                                            {{--Return--}}
+                                        {{--</button>--}}
+                                    {{--</form>--}}
+                                {{--</td>--}}
                             </tr>
 
                         @endforeach

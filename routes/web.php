@@ -61,6 +61,12 @@ Route::get('admin/monthlySaleStatus','HomeController@chart');
 
 Route::get('admin/orderList','HomeController@orderlist');
 
+Route::get('admin/preOrderList','HomeController@preOrderList');
+
+Route::get('admin/returnOrderList','HomeController@returnOrderList');
+
+Route::get('admin/userFeedback','ContactUsController@userFeedback');
+
 Route::get('user/returnOrder','OrderController@rOrder');
 
 Route::get('user/preOrderHistory','PreOrderController@preHistory');

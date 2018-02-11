@@ -59,6 +59,7 @@
                     </li>
                     <li><a href="{{ url('/admin/orderList') }}">Order List</a></li>
                     <li><a href="{{ url('admin/user') }}">ShopKeeper List</a></li>
+                    <li><a href="{{ url('admin/userFeedback') }}">User Feedback</a></li>
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>

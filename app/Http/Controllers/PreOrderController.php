@@ -17,7 +17,7 @@ class PreOrderController extends Controller
      */
     public function index()
     {
-        $product = Product::pluck('name')->all();
+        $product = DB::table('products')->pluck('name')->all();
         return view('user/preOrder',compact('product'));
     }
 
