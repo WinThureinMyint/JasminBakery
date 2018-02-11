@@ -63,10 +63,14 @@ Route::get('admin/orderList','HomeController@orderlist');
 
 Route::get('user/returnOrder','OrderController@rOrder');
 
+Route::get('user/preOrderHistory','PreOrderController@preHistory');
+
 Route::get('user/preOrder','OrderController@preOrder');
 
 Route::get('user/feedBack','ContactUsController@feedBack');
 
 Route::resource('user/ticket','ContactUsController');
+
+Route::resource('user/preOrder','PreOrderController');
 
 
