@@ -48,6 +48,8 @@
                                         <a href="{{ url("user/profile/$user->id/edit") }}">
                                         <input type="button" class="btn btn-primary col-sm-4" value="Edit Profile">
                                         </a>
+                                        {{--<button href="{{url('user/profile')}}" class="btn btn-primary">Cancel</button>--}}
+                                    </td>
                                 </tr>
                             </table>
                         </div>

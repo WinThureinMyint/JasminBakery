@@ -7,6 +7,7 @@ use App\Order;
 use App\PreOrder;
 use ConsoleTVs\Charts\Facades\Charts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -28,11 +29,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = Product::all();
+        $product = DB::table('products')->pluck('category')->all();
+        return view('/home',compact('products','product'));
     }
 
     public function orderlist()
     {
+//        $id = DB::table('users')->where('id' != '1')->get();
         $orders = DB::table('orders')
             ->join('products','products.id','=','orders.orderID')
             ->join('photos','products.photo_id','=','photos.id')
@@ -43,7 +47,10 @@ class HomeController extends Controller
 
     public function preOrderList()
     {
-        $preOrder = PreOrder::all();
+        $preOrder = DB::table('pre_orders')
+            ->join('products','products.id','=','pre_orders.id')
+            ->get();
+//        $preOrder = PreOrder::all();
         return view('admin/preOrderList',compact('preOrder'));
     }
 

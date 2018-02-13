@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Contact Us</div>
                 @if($contact->count())
-                    @foreach($contact as $contact)
+
                         <table class="table">
                             <tr>
 
@@ -21,6 +21,7 @@
                                 <td>{!! Form::label('updated','Create Date') !!}</td>
 
                             </tr>
+                            @foreach($contact as $contact)
                             <tr>
                                 {{--<td>{{ Form::checkbox('agree', 1, null, ['class' => 'field']) }}</td>--}}
                                 <td>{{$contact->id}}</td>
@@ -52,10 +53,11 @@
                                     {!! Form::close() !!}
                                 </td>
                             </tr>
+                            @endforeach
                         </table>
-                    @endforeach
+
                 @else
-                    <h4 align="center">You do not have any information submitted</h4>
+                    <h4 align="center">User Didn't submit any problem or feedback yet! :D</h4>
                 @endif
             </div>
         </div>

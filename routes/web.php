@@ -11,13 +11,14 @@
 |
 */
 
+use App\Product;
+use Illuminate\Support\Facades\DB;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/products','ProductsController@get');
 
@@ -40,10 +41,17 @@ Route::post('login','Auth\LoginController@login');
 
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/home',function (){
-        return view('home');
-    })->name('home');
+        $products = Product::all();
+        $product = DB::table('products')->pluck('category')->all();
+        return view('products',compact('product','products'));
+    })->name('products');
     Route::get('/adminHome',function (){
-        return view('adminHome');
+        $orders = DB::table('orders')
+            ->join('products','products.id','=','orders.orderID')
+            ->join('photos','products.photo_id','=','photos.id')
+//            ->join('users','orders.userID','=','orders.orderID')
+            ->get();
+        return view('admin/orderList',compact('orders'));
     })->name('adminHome');
 });
 
@@ -73,10 +81,13 @@ Route::get('user/preOrderHistory','PreOrderController@preHistory');
 
 Route::get('user/preOrder','OrderController@preOrder');
 
+Route::get('iframes/iframe','OrderController@print');
+
 Route::get('user/feedBack','ContactUsController@feedBack');
 
 Route::resource('user/ticket','ContactUsController');
 
 Route::resource('user/preOrder','PreOrderController');
+
 
 

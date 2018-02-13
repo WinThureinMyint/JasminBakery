@@ -36,9 +36,9 @@
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
-                                        <a class="cart_quantity_up" href='{{url("cartEdit?product_id=$item->id&increment=1")}}'> + </a>
-                                        <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2" readonly>
                                         <a class="cart_quantity_down" href='{{url("cartEdit?product_id=$item->id&decrease=1")}}'> - </a>
+                                        <input class="cart_quantity_input" type="text" name="quantity" value="{{$item->qty}}" autocomplete="off" size="2" readonly>
+                                        <a class="cart_quantity_up" href='{{url("cartEdit?product_id=$item->id&increment=1")}}'> + </a>
                                         &nbsp;&nbsp;<a href='{{url("cartEdit?product_id=$item->id&remove_item=1")}}'><span class="glyphicon glyphicon-trash"></span></a>
                                     </div>
 

@@ -11,7 +11,7 @@
 
                     <div class="panel-body">
                         <div class="col-sm-3">
-                        <img src="{{asset('images/'.$product->photo->file)}}" class="img-responsive img-rounded">
+                            <img src="{{asset('images/'.$product->photo->file)}}" class="img-responsive img-rounded">
 
                         </div>
                         <div class="col-sm-9">
@@ -60,7 +60,8 @@
                                 <tr>
                                     <td></td>
                                     <td></td>
-                                    <td>{!! Form::submit('Edit Product', ['class' => 'btn btn-primary']) !!}</td>
+                                    <td>{!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                                        <button href="{{url('admin/product')}}" class="btn btn-primary">Cancel</button></td>
                                 </tr>
                                 {!! Form::close() !!}
                             </table>

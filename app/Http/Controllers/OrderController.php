@@ -30,17 +30,23 @@ class OrderController extends Controller
 
             ->where('userID',$id)
             ->where('returnOrder',0);*/
+        $product = Product::all();
         $orders = DB::table('orders')
                 ->join('products','orders.itemID','=','products.id')
                 ->join('photos','products.photo_id','=','photos.id')
                 ->get();
-        return view('user/userOrder',compact('user','orders'));
+        return view('user/userOrder',compact('user','orders','product'));
     }
 
     public function preOrder()
     {
         $product = Product::all();
         return view('user/preOrder',compact('product'));
+    }
+
+    public function print()
+    {
+        return view('iframes/iframe');
     }
 
     public function return()
@@ -64,7 +70,8 @@ class OrderController extends Controller
             ->join('products','products.id','=','rorders.id')
             ->get();
 //        $order = Rorder::all();
-        return view('user/returnOrder',compact('order'));
+        $product = Product::all();
+        return view('user/returnOrder',compact('order','product'));
     }
     /**
      * Show the form for creating a new resource.

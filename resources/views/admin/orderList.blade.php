@@ -1,9 +1,14 @@
 @extends('layouts.admin')
 
+
+
 @section('content')
     <section id="cart_items">
         <div class="container">
-            <div class="breadcrumbs">
+            <p><a class="btnPrint hidden-print" onclick="window.print();" >Print!</a></p>
+
+            {{--<p><a class="btnPrint" href='iframes/iframe2.html'>Print second page!</a></p>--}}
+            <div class="breadcrumbs hidden-print">
                 <ol class="breadcrumb">
                     <li class="active"><a href="{{url('admin/orderList')}}">Order List</a></li>
                     <li><a href="{{url('admin/preOrderList')}}"> Pre-Order List</a></li>
@@ -33,8 +38,10 @@
                         @endphp
                         @foreach($orders as $item)
                             <tr>
+                                {{--@if($id)--}}
                                 <td class="user">{{ucfirst($item->userID)}}</td>
                                 <td class="userAddress">{{ucfirst($item->userID)}}</td>
+                                {{--@endif--}}
                                 <td class="cart_product">
                                     @if( $item->orderID  != $oID  )
                                         {{ $item->orderID }}
@@ -60,15 +67,6 @@
                                 <td class="cart_delete">
                                     <p>{{$item->updated_at}}</p>
                                 </td>
-                                {{--<td>--}}
-                                    {{--<form method="GET" action="{{url('orderHistory/'.$item->cartRowID.'/edit')}}">--}}
-                                        {{--<input type="hidden" name="id" value="{{$item->cartRowID}}">--}}
-                                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-                                        {{--<button type="submit" class="btn btn-danger">--}}
-                                            {{--Return--}}
-                                        {{--</button>--}}
-                                    {{--</form>--}}
-                                {{--</td>--}}
                             </tr>
 
                         @endforeach
@@ -82,7 +80,7 @@
                         </tr>
 
                         @else
-                            <p>You haven't order yet</p>
+                            <p>User haven't order yet</p>
                         @endif
                         </tbody>
                     </table>
@@ -91,3 +89,10 @@
     </section> <!--/#cart_items-->
 
 @endsection
+
+{{--@section('scripts')--}}
+    {{--<script src="{{ URL::asset('js/jquery-1.4.4.min.js') }}" type="text/javascript"></script>--}}
+    {{--<script src="{{ URL::asset('js/jquery.printPage.js') }}" type="text/javascript"></script>--}}
+    {{----}}
+
+    {{--@endsection--}}

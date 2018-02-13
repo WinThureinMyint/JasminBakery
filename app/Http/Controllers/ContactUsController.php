@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ContactUs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ContactUsController extends Controller
 {
@@ -15,9 +16,10 @@ class ContactUsController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $contact = ContactUs::all();
 //        dd($contact);
-        return view('user/ticket',compact('contact'));
+        return view('user/ticket',compact('contact','user'));
 
     }
 

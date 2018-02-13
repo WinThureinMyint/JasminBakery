@@ -45,7 +45,8 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>{!! Form::submit('Create Product', ['class' => 'btn btn-primary']) !!}</td>
+                                <td>{!! Form::submit('Create Product', ['class' => 'btn btn-primary']) !!}
+                                <button href="{{url('admin/product')}}" class="btn btn-primary">Cancel</button></td>
                             </tr>
                             {!! Form::close() !!}
                         </table>

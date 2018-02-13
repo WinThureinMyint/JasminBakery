@@ -54,8 +54,9 @@
                         <td>{!! Form::textarea('roorder',null,['class' => 'form_control','rows' => '2', 'cols' => '40', 'placeholder' => 'For my marriage :D'] ) !!}</td>
                     </tr>
                     <tr>
-                        <td align="right">{!! Form::submit('Pre-Order Product', ['class' => 'btn btn-success']) !!}</td>
-                        <td><button class="btn btn-danger">Cancel</button></td>
+                        <td></td>
+                        <td align="left">{!! Form::submit('Pre-Order Product', ['class' => 'btn btn-success']) !!}</td>
+                        {{--<td><button href="{{url('user/preOrder')}}" class="btn btn-danger">Cancel</button></td>--}}
                     </tr>
 
                 </table>
