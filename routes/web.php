@@ -57,23 +57,27 @@ Route::group(['middleware' => 'auth'], function (){
     })->name('adminHome');
 });
 
-Route::resource('admin/product','ProductsController');
+Route::group(['middleware' => 'admin'], function (){
+    Route::resource('admin/product','ProductsController');
 
-Route::resource('admin/user','AdminUsersController');
+    Route::resource('admin/user','AdminUsersController');
+
+    Route::get('admin/monthlySaleStatus','HomeController@chart');
+
+    Route::get('admin/orderList','HomeController@orderlist');
+
+    Route::get('admin/preOrderList','HomeController@preOrderList');
+
+    Route::get('admin/returnOrderList','HomeController@returnOrderList');
+
+    Route::get('admin/userFeedback','ContactUsController@userFeedback');
+
+});
+
 
 Route::resource('user/profile','UserController');
 
 Route::resource('user/order','OrderController');
-
-Route::get('admin/monthlySaleStatus','HomeController@chart');
-
-Route::get('admin/orderList','HomeController@orderlist');
-
-Route::get('admin/preOrderList','HomeController@preOrderList');
-
-Route::get('admin/returnOrderList','HomeController@returnOrderList');
-
-Route::get('admin/userFeedback','ContactUsController@userFeedback');
 
 Route::get('user/returnOrder','OrderController@rOrder');
 
