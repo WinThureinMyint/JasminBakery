@@ -39,8 +39,8 @@
                         @foreach($orders as $item)
                             <tr>
                                 {{--@if($id)--}}
-                                <td class="user">{{ucfirst($item->userID)}}</td>
-                                <td class="userAddress">{{ucfirst($item->userID)}}</td>
+                                <td class="user">{{ucfirst($item->firstName)}}</td>
+                                <td class="userAddress">{{ucfirst($item->address)}}</td>
                                 {{--@endif--}}
                                 <td class="cart_product">
                                     @if( $item->orderID  != $oID  )

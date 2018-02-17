@@ -44,11 +44,13 @@ Route::group(['middleware' => 'auth'], function (){
         $products = Product::all();
         $product = DB::table('products')->pluck('category')->all();
         return view('products',compact('product','products'));
-    })->name('products');
+    })->name('home');
     Route::get('/adminHome',function (){
         $orders = DB::table('orders')
             ->join('products','products.id','=','orders.orderID')
             ->join('photos','products.photo_id','=','photos.id')
+            ->join('users','users.id','=','orders.orderID')
+//            ->select('orders.*', 'users.id')
 //            ->join('users','orders.userID','=','orders.orderID')
             ->get();
         return view('admin/orderList',compact('orders'));
@@ -62,8 +64,6 @@ Route::resource('admin/user','AdminUsersController');
 Route::resource('user/profile','UserController');
 
 Route::resource('user/order','OrderController');
-
-Route::get('user/returnProduct','OrderController@return');
 
 Route::get('admin/monthlySaleStatus','HomeController@chart');
 
@@ -80,6 +80,8 @@ Route::get('user/returnOrder','OrderController@rOrder');
 Route::get('user/preOrderHistory','PreOrderController@preHistory');
 
 Route::get('user/preOrder','OrderController@preOrder');
+
+Route::get('user/returnProduct','OrderController@return');
 
 Route::get('iframes/iframe','OrderController@print');
 

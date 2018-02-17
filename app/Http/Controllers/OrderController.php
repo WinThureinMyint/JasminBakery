@@ -15,6 +15,7 @@ class OrderController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -32,16 +33,17 @@ class OrderController extends Controller
             ->where('returnOrder',0);*/
         $product = Product::all();
         $orders = DB::table('orders')
-                ->join('products','orders.itemID','=','products.id')
-                ->join('photos','products.photo_id','=','photos.id')
-                ->get();
-        return view('user/userOrder',compact('user','orders','product'));
+            ->join('products', 'orders.itemID', '=', 'products.id')
+            ->join('photos', 'products.photo_id', '=', 'photos.id')
+            ->join('users','orders.userID','=','users.id')
+            ->get();
+        return view('user/userOrder', compact('user', 'orders', 'product'));
     }
 
     public function preOrder()
     {
         $product = Product::all();
-        return view('user/preOrder',compact('product'));
+        return view('user/preOrder', compact('product'));
     }
 
     public function print()
@@ -53,7 +55,7 @@ class OrderController extends Controller
     {
         $user = Auth::user();
         $product = DB::table('products')->pluck('name')->all();
-        return view('user/returnProduct',compact('user','product'));
+        return view('user/returnProduct', compact('user', 'product'));
     }
 
     public function rOrder()
@@ -67,12 +69,16 @@ class OrderController extends Controller
 //            ->where('userID',$id)
 //            ->where('returnOrder',0);*/
         $order = DB::table('rorders')
-            ->join('products','products.id','=','rorders.id')
+            ->join('products', 'rorders.id', '=', 'products.id')
+            ->select('rorders.*','rorders.name')
+            ->where('rorders.name','products.name')
+            // ->groupBy('rorders.id','rorders.name','rorders.qty')
             ->get();
 //        $order = Rorder::all();
-        $product = Product::all();
-        return view('user/returnOrder',compact('order','product'));
+        // $product = Product::all();
+        return view('user/returnOrder', compact('order'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -87,35 +93,37 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
 //         dd($request->all());
-       $order = Rorder::create($request->all());
+        $order = $request->all();
+        $order = Auth::user();
+        Rorder::create($order);
         return redirect('user/returnOrder');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $orders = Order::all()
-                    ->where('userID',$id)
-                    ->where('returnOrder',0);
+            ->where('userID', $id)
+            ->where('returnOrder', 0);
         //return $orders;
-        return view('orderHistory')->with('orders',$orders);
+        return view('orderHistory')->with('orders', $orders);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -124,14 +132,14 @@ class OrderController extends Controller
             ->where('cartRowID', $id)
             ->update(['returnOrder' => 1]);
 
-        return redirect('orderHistory/'.Auth::id());
+        return redirect('orderHistory/' . Auth::id());
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -142,7 +150,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

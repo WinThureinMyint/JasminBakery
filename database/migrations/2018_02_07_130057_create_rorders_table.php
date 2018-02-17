@@ -15,6 +15,7 @@ class CreateRordersTable extends Migration
     {
         Schema::create('rorders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('user_id');
             $table->string('name');
             $table->integer('qty');
             $table->timestamps();

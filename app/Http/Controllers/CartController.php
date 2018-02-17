@@ -9,6 +9,8 @@ use Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use function Sodium\compare;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Collection;
 
 class CartController extends Controller
 {
@@ -74,7 +76,7 @@ class CartController extends Controller
 
             Cart::remove($rowId->keys()->first());
         }
-        return redirect('/cartView',compact('user','orders'));
+        return redirect('/cartView');
     }
     public function checkout(){
         $id = Auth::id();
