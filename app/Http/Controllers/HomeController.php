@@ -51,6 +51,7 @@ class HomeController extends Controller
 
     public function preOrderList()
     {
+        $preOrder = PreOrder::all();
         $preOrder = DB::table('pre_orders')
              ->join('products','pre_orders.id','=','products.id')
             // ->where('pre_orders.id','>',0)
@@ -63,7 +64,7 @@ class HomeController extends Controller
     public function returnOrderList()
     {
         $order = DB::table('rorders')
-            ->join('products','products.id','=','rorders.id')
+//            ->join('products','products.id','=','rorders.id')
             ->get();
         return view('admin/returnOrderList',compact('order'));
     }

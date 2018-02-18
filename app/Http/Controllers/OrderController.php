@@ -54,13 +54,14 @@ class OrderController extends Controller
     public function return()
     {
         $user = Auth::user();
-        $product = DB::table('products')->pluck('name')->all();
+        $product = Product::all();
+//        $product = DB::table('products')->pluck('name')->all();
         return view('user/returnProduct', compact('user', 'product'));
     }
 
     public function rOrder()
     {
-//        $id = Auth::id();
+        $id = Auth::id();
 //
 //        /*$product = Product::all();
 //
@@ -68,10 +69,11 @@ class OrderController extends Controller
 //
 //            ->where('userID',$id)
 //            ->where('returnOrder',0);*/
+
         $order = DB::table('rorders')
-            ->join('products', 'rorders.id', '=', 'products.id')
-            ->select('rorders.*','rorders.name')
-            ->where('rorders.name','products.name')
+//            ->join('products', 'rorders.id', 'products.id')
+//            ->select('rorders.*','rorders.id')
+//            ->where('rorders.name','products.name')
             // ->groupBy('rorders.id','rorders.name','rorders.qty')
             ->get();
 //        $order = Rorder::all();
@@ -100,7 +102,7 @@ class OrderController extends Controller
     {
 //         dd($request->all());
         $order = $request->all();
-        $order = Auth::user();
+//        $order = Auth::user();
         Rorder::create($order);
         return redirect('user/returnOrder');
     }
