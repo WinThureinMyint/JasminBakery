@@ -45,7 +45,8 @@
                                             <td class="cart_description">
                                                 {{$item->itemName}}
                                             </td>
-                                            <td class="product-image"><img src="{{ asset('/images/'.$item->file)}}" class="img-responsive"
+                                            <td class="product-image">
+                                                <img src="{{ asset('/images/'.$item->file)}}" class="img-responsive"
                                                      style="width: 90px; height: 60px;"></td>
                                             <td class="cart_price">
                                                 <p>${{$item->price}}</p>

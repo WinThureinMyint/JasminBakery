@@ -101,10 +101,10 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 //         dd($request->all());
-        $id = Auth::id();
-        Rorder::create([
-            'user_id' => $id,
-        ]);
+//        $id = Auth::id();
+//        Rorder::create([
+//            'user_id' => $id,
+//        ]);
         $order = $request->all();
 //        $order = Auth::user();
         Rorder::create($order);
