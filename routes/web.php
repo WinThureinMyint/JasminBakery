@@ -20,23 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/products','ProductsController@get');
-
-Route::post('/cart','CartController@add');
-
-Route::view('/cartView','cartView');
-
-Route::get('/cartEdit','CartController@cart')->name('cartEdit');
-
-Route::get('/clearCart', function (){
-    Cart::destroy();
-    return redirect('cartView');
-});
-
-Route::get('/checkout','CartController@checkout');
-
-Route::resource('/orderHistory','OrderController');
-
 Route::post('login','Auth\LoginController@login');
 
 Route::group(['middleware' => 'auth'], function (){
@@ -74,6 +57,22 @@ Route::group(['middleware' => 'admin'], function (){
 
 });
 
+Route::get('/products','ProductsController@get');
+
+Route::post('/cart','CartController@add');
+
+Route::view('/cartView','cartView');
+
+Route::get('/cartEdit','CartController@cart')->name('cartEdit');
+
+Route::get('/clearCart', function (){
+    Cart::destroy();
+    return redirect('cartView');
+});
+
+Route::get('/checkout','CartController@checkout');
+
+Route::resource('/orderHistory','OrderController');
 
 Route::resource('user/profile','UserController');
 

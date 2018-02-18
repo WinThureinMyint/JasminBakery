@@ -31,13 +31,13 @@ class OrderController extends Controller
 
             ->where('userID',$id)
             ->where('returnOrder',0);*/
-        $product = Product::all();
         $orders = DB::table('orders')
             ->join('products', 'orders.itemID', '=', 'products.id')
             ->join('photos', 'products.photo_id', '=', 'photos.id')
-            ->join('users','orders.userID','=','users.id')
+            ->join('users', 'orders.userID', '=', 'users.id')
             ->get();
-        return view('user/userOrder', compact('user', 'orders', 'product'));
+
+        return view('user/userOrder', compact('user', 'arr', 'orders'));
     }
 
     public function preOrder()
@@ -101,6 +101,10 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 //         dd($request->all());
+        $id = Auth::id();
+        Rorder::create([
+            'user_id' => $id,
+        ]);
         $order = $request->all();
 //        $order = Auth::user();
         Rorder::create($order);

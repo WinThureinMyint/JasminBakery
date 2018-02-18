@@ -32,7 +32,8 @@
                                 @php
                                     $oID='';
                                 @endphp
-                                @foreach($product as $product)
+
+                                {{--@foreach($product as $product)--}}
                                     @foreach($orders as $item)
                                         <tr>
                                             <td class="cart_product">
@@ -63,9 +64,10 @@
                                             </td>
 
                                             <td>
+
                                                 <div class="col-md-12">
                                                     <form method="POST" action="{{url('cart')}}">
-                                                        <input type="hidden" name="id" value="{{$product->id}}">
+                                                        <input type="hidden" name="id" value="{{$item->itemID}}">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                         <button type="submit" class="btn btn-danger add-to-cart">
                                                             <i class="fa fa-shopping-cart"></i>
@@ -73,10 +75,11 @@
                                                         </button>
                                                     </form>
                                                 </div>
+
                                             </td>
                                         </tr>
                                     @endforeach
-                                @endforeach
+                                {{--@endforeach--}}
                                     <tr>
                                         <td colspan="3"></td>
                                     </tr>

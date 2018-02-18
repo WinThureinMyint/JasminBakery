@@ -11,4 +11,5 @@ class Order extends Model
     protected $fillable = [
         'orderID','userID', 'cartRowID', 'itemID', 'itemName', 'qty', 'price','subtotal','returnOrder'
     ];
+
 }
