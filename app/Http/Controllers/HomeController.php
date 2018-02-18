@@ -50,7 +50,7 @@ class HomeController extends Controller
     {
         $preOrder = PreOrder::all();
         $preOrder = DB::table('pre_orders')
-             ->join('products','pre_orders.id','=','products.id')
+//             ->join('products','pre_orders.id','=','products.id')
             // ->where('pre_orders.id','>',0)
 //             ->select('pre_orders.*','products.name')
             ->get();

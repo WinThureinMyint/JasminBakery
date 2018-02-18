@@ -11,7 +11,7 @@
                         <li class="active"><a href="/user/returnOrder">Return Order</a></li>
                         <li><a href="/user/preOrderHistory">Pre-Order History</a></li>
                     </ul>
-
+                    @if($order->count())
                     <table class="table">
                         <table class="table table-condensed">
                             <thead>
@@ -42,6 +42,9 @@
                             </tbody>
                         </table>
                     </table>
+                        @else
+                    <div align="center"><b>Haven't Return any Expired Product Yet!</b></div>
+                        @endif
                 </div>
             </div>
         </div>

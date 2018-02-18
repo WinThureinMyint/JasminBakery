@@ -17,14 +17,15 @@ class PreOrderController extends Controller
      */
     public function index()
     {
-        $product = DB::table('products')->pluck('name')->all();
+//        $product = DB::table('products')->pluck('name')->all();
+        $product = Product::all();
         return view('user/preOrder', compact('product'));
     }
 
     public function preHistory()
     {
         $preOrder = DB::table('pre_orders')
-            ->join('products', 'products.id', '=', 'pre_orders.id')
+//            ->join('products', 'products.id', '=', 'pre_orders.id')
             ->get();
 //        $preOrder = PreOrder::all();
         return view('user/preOrderHistory', compact('preOrder'));

@@ -32,12 +32,13 @@
             <div class="panel panel-default">
                 <div align="center" class="panel-heading">Pre-Order</div>
                 {!! Form::open(['method' =>'POST', 'action' => 'PreOrderController@store']) !!}
-                <table class="table table-responsive">
+                <div class="col-sm-7 pull-left">
+                    <table class="table table-responsive">
 
                     <tr>
                         @if($product)
                             <td>{!! Form::label('noproduct','Name Of Product:') !!}</td>
-                            <td>{!! Form::select('noproduct', ['' => 'Choose Product Name'] + $product ,['class' => 'form_control'] ) !!}</td>
+                            <td>{!! Form::text('noproduct',null,['class' => 'form_control',] ) !!}</td>
                         @endif
                     </tr>
                     <tr>
@@ -60,6 +61,20 @@
                     </tr>
 
                 </table>
+                </div>
+                <div class="col-sm-5 pull-right">
+                    <table class="table table-striped">
+
+                        <tr>
+                            <td><b>Product In Our Website</b></td>
+                        </tr>
+                        @foreach($product as $product)
+                            <tr>
+                                <td>{{$product->name}}</td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
                 {!! Form::close() !!}
             </div>
         </div>

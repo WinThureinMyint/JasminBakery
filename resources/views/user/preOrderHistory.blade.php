@@ -11,7 +11,7 @@
                         <li><a href="/user/returnOrder">Return Order</a></li>
                         <li class="active"><a href="/user/preOrderHistory">Pre-Order History</a></li>
                     </ul>
-
+                    @if($preOrder)
                         <table class="table">
                             <tr>
                                 <td>{!! Form::label('title','Name Of Product:') !!}</td>
@@ -22,14 +22,16 @@
                             </tr>
                             @foreach($preOrder as $preorder)
                             <tr>
-                                <td>{{$preorder->name}}</td>
+                                <td>{{$preorder->noproduct}}</td>
                                 <td>{{$preorder->aoorder}}</td>
                                 <td>{{$preorder->date}}</td>
                                 <td>{{$preorder->roorder}}</td>
                             </tr>
                             @endforeach
                         </table>
-
+                    @else
+                    <div align="center"><b>No pre-order product yet</b></div>
+                        @endif
                 </div>
             </div>
         </div>

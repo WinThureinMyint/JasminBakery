@@ -23,7 +23,7 @@
                         @foreach($preOrder as $preorder)
                             <tr>
                                 {{--<td>{{$preorder->noproduct}}</td>--}}
-                                <td>{{$preorder->name}}</td>
+                                <td>{{$preorder->noproduct}}</td>
                                 <td>{{$preorder->aoorder}}</td>
                                 <td>{{$preorder->date}}</td>
                                 <td>{{$preorder->roorder}}</td>

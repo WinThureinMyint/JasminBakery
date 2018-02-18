@@ -32,10 +32,11 @@
                     </div>
                     <div class="col-sm-5 pull-right">
                         <table class="table table-striped">
-                            @foreach($product as $product)
+
                             <tr>
                                 <td><b>Product In Our Website</b></td>
                             </tr>
+                            @foreach($product as $product)
                             <tr>
                                 <td>{{$product->name}}</td>
                             </tr>
