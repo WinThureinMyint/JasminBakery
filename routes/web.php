@@ -15,7 +15,8 @@ use App\Product;
 use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = Product::all();
+    return view('products',compact('products'));
 });
 
 Auth::routes();

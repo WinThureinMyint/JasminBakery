@@ -7,9 +7,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <ul class="panel-heading breadcrumb">
-                        <li><a href="/user/order">Order History</a></li>
-                        <li><a href="/user/returnOrder">Return Order</a></li>
-                        <li class="active"><a href="/user/preOrderHistory">Pre-Order History</a></li>
+                        <li><a href="/user/order">Normal Order</a></li>
+                        <li><a href="/user/returnOrder">Returned Expired Product</a></li>
+                        <li class="bg-success"><a href="/user/preOrderHistory">Pre-Ordered Product</a></li>
                     </ul>
                     @if($preOrder)
                         <table class="table">

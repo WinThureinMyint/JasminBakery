@@ -7,9 +7,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <ul class="panel-heading breadcrumb">
-                        <li><a href="/user/order">Order History</a></li>
-                        <li class="active"><a href="/user/returnOrder">Return Order</a></li>
-                        <li><a href="/user/preOrderHistory">Pre-Order History</a></li>
+                        <li class="bg-success"><a href="/user/order">Normal Order</a></li>
+                        <li><a href="/user/returnOrder">Returned Expired Product</a></li>
+                        <li><a href="/user/preOrderHistory">Pre-Ordered Product</a></li>
                     </ul>
 
                     <table class="table">
@@ -64,20 +64,20 @@
                                                 <p>{{$item->updated_at}}</p>
                                             </td>
 
-                                            <td>
+                                            {{--<td>--}}
 
-                                                <div class="col-md-12">
-                                                    <form method="POST" action="{{url('cart')}}">
-                                                        <input type="hidden" name="id" value="{{$item->itemID}}">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <button type="submit" class="btn btn-danger add-to-cart">
-                                                            <i class="fa fa-shopping-cart"></i>
-                                                            Add to cart
-                                                        </button>
-                                                    </form>
-                                                </div>
+                                                {{--<div class="col-md-12">--}}
+                                                    {{--<form method="POST" action="{{url('cart')}}">--}}
+                                                        {{--<input type="hidden" name="id" value="{{$item->itemID}}">--}}
+                                                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+                                                        {{--<button type="submit" class="btn btn-danger add-to-cart">--}}
+                                                            {{--<i class="fa fa-shopping-cart"></i>--}}
+                                                            {{--Add to cart--}}
+                                                        {{--</button>--}}
+                                                    {{--</form>--}}
+                                                {{--</div>--}}
 
-                                            </td>
+                                            {{--</td>--}}
                                         </tr>
                                     @endforeach
                                 {{--@endforeach--}}

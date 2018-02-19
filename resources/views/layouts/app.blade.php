@@ -58,31 +58,33 @@
                         </a>
                     </li>
                     <li><a href="{{ url('/products') }}">Products</a></li>
-                    <li><a href="{{ url('/user/preOrder') }}">Pre-Order Products</a></li>
-                    <li><a href="{{ url('/user/feedBack') }}">Contact Us</a></li>
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
                     @else
+                        <li>
+                            <a href="{{ url('/user/order') }}">
+                                My Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/user/returnProduct') }}">
+                                Return Expired Product
+                            </a>
+                        </li>
+                        <li><a href="{{ url('/user/preOrder') }}">Pre-Order Products</a></li>
+                        <li><a href="{{ url('/user/feedBack') }}">Contact Us</a></li>
                         <li class="dropdown">
+
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false" aria-haspopup="true">
                                 {{ ucfirst(Auth::user()->firstName) }} Account<span class="caret"></span>
                             </a>
+
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="{{ url('user/profile') }}">
-                                        Manage My Account
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/user/order') }}">
-                                        My Orders
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/user/returnProduct') }}">
-                                        Return Expired Product
+                                        My Profile
                                     </a>
                                 </li>
                                 <li>

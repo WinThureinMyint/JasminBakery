@@ -32,7 +32,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/admin/product') }}">
                     {{ config('app.name') }}
                 </a>
             </div>
@@ -47,15 +47,17 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                            Product<span class="caret"></span>
-                        </a>
+                        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">--}}
+                            {{--Product<span class="caret"></span>--}}
+                        {{--</a>--}}
 
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url('admin/product') }}">Manage Product</a></li>
-                            <li><a href="{{ url('/admin/monthlySaleStatus') }}">Monthly Sale Status</a></li>
+                        {{--<ul class="dropdown-menu">--}}
+                            {{--<li>--}}
+                                <a href="{{ url('admin/product') }}">Manage Product</a>
+                            {{--</li>--}}
+                            {{--<li><a href="{{ url('/admin/monthlySaleStatus') }}">Monthly Sale Status</a></li>--}}
 
-                        </ul>
+                        {{--</ul>--}}
                     </li>
                     <li><a href="{{ url('/admin/orderList') }}">Order List</a></li>
                     <li><a href="{{ url('admin/user') }}">ShopKeeper List</a></li>
