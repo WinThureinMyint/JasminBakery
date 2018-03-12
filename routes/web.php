@@ -30,12 +30,13 @@ Route::group(['middleware' => 'auth'], function (){
         return view('products',compact('product','products'));
     })->name('home');
     Route::get('/adminHome',function (){
+        $products=Product::all();
         $orders = DB::table('orders')
             ->join('products', 'orders.itemID', '=', 'products.id')
             ->join('photos', 'products.photo_id', '=', 'photos.id')
             ->join('users', 'orders.userID', '=', 'users.id')
             ->get();
-        return view('admin/orderList',compact('orders'));
+        return view('admin/product/index',compact('orders','products'));
     })->name('adminHome');
 });
 
