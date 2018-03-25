@@ -30,10 +30,10 @@
                                 </td>
                                 <td class="cart_description">
                                     <h4>{{$item->name}}</h4>
-                                    <p>Item ID: {{$item->id}}</p>
+                                    {{--<p>Item ID: {{$item->id}}</p>--}}
                                 </td>
                                 <td class="cart_price">
-                                    <p>${{$item->price}}</p>
+                                    <p>฿{{$item->price}}</p>
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
@@ -42,7 +42,7 @@
 
                                 </td>
                                 <td class="cart_total">
-                                    <p class="cart_total_price">${{$item->subtotal}}</p>
+                                    <p class="cart_total_price">฿{{$item->subtotal}}</p>
                                 </td>
                                 <td class="cart_delete">
                                     <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -52,8 +52,9 @@
                         @endforeach
                         <tr>
                             <td colspan="2"></td>
-                            <td>Total</td>
-                            <td colspan="2">${{$total}}</td>
+                            <td></td>
+                            <td><b>Total</b></td>
+                            <td colspan="2"><b>฿{{$total}}</b></td>
                         </tr>
                         <tr>
                             <td colspan="3"></td>
@@ -61,11 +62,14 @@
                         <div class="alert alert-success" >
                             <center><strong>Success!</strong> Your order have been placed.</center>
                         </div>
+
                         @else
                             <p>You have no items in the shopping cart</p>
                         @endif
                         </tbody>
                     </table>
+                <a href="/products" class="btn btn-success pull-right">Continue Shopping</a>
+
             </div>
         </div>
     </section> <!--/#cart_items-->

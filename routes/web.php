@@ -78,6 +78,8 @@ Route::resource('user/profile','UserController');
 
 Route::resource('user/order','OrderController');
 
+Route::get('user/olderOrder','OrderController@olderOrder');
+
 Route::get('user/returnOrder','OrderController@rOrder');
 
 Route::get('user/preOrderHistory','PreOrderController@preHistory');

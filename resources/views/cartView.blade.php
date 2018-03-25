@@ -32,7 +32,7 @@
                                     {{--<p><img src="{{asset('images/'.$product->photo->file)}}"> </p>--}}
                                 </td>
                                 <td class="cart_price">
-                                    <p>${{$item->price}}</p>
+                                    <p>฿{{$item->price}}</p>
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
@@ -44,7 +44,7 @@
 
                                 </td>
                                 <td class="cart_total">
-                                    <p class="cart_total_price">${{$item->subtotal}}</p>
+                                    <p class="cart_total_price">฿{{$item->subtotal}}</p>
                                 </td>
                                 <td class="cart_delete">
                                     <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -54,8 +54,9 @@
                         @endforeach
                         <tr>
                             <td colspan="2"></td>
-                            <td>Cart Total</td>
-                            <td colspan="2">${{Cart::subtotal()}}</td>
+                            <td></td>
+                            <td><b>Cart Total</b></td>
+                            <td colspan="2"><b>฿{{Cart::subtotal()}}</b></td>
                             <td></td>
                         </tr>
                         <tr>

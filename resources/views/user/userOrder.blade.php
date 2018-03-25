@@ -10,6 +10,7 @@
                         <li class="bg-success"><a href="/user/order">Normal Order</a></li>
                         <li><a href="/user/returnOrder">Returned Expired Product</a></li>
                         <li><a href="/user/preOrderHistory">Pre-Ordered Product</a></li>
+                        <li><a href="/user/olderOrder">Older Order History</a></li>
                     </ul>
 
                     <table class="table">
@@ -24,7 +25,7 @@
                                     <td class="price">Price</td>
                                     <td class="quantity">Quantity</td>
                                     <td class="total">Sub Total</td>
-                                    <td>Date</td>
+                                    <td>Order Date</td>
                                     <td></td>
                                 </tr>
                                 </thead>
@@ -49,7 +50,7 @@
                                                 <img src="{{ asset('/images/'.$item->file)}}" class="img-responsive"
                                                      style="width: 90px; height: 60px;"></td>
                                             <td class="cart_price">
-                                                <p>${{$item->price}}</p>
+                                                <p>฿{{$item->price}}</p>
                                             </td>
                                             <td class="cart_quantity">
                                                 <div class="cart_quantity_button">
@@ -58,10 +59,10 @@
 
                                             </td>
                                             <td class="cart_total">
-                                                <p class="cart_total_price">${{$item->subtotal}}</p>
+                                                <p class="cart_total_price">฿{{$item->subtotal}}</p>
                                             </td>
                                             <td class="cart_delete">
-                                                <p>{{$item->updated_at}}</p>
+                                                <p>{{$item->created_at}}</p>
                                             </td>
 
                                             {{--<td>--}}

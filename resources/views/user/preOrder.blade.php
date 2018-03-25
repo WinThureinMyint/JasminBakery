@@ -34,12 +34,12 @@
                 {!! Form::open(['method' =>'POST', 'action' => 'PreOrderController@store']) !!}
                 <div class="col-sm-7 pull-left">
                     <table class="table table-responsive">
-
-                    <tr>
                         @if($product)
+                    <tr>
+
                             <td>{!! Form::label('noproduct','Name Of Product:') !!}</td>
-                            <td>{!! Form::text('noproduct',null,['class' => 'form_control',] ) !!}</td>
-                        @endif
+                            <td>{!! Form::select('noproduct',['Products'=>$name],['class' => 'form_control',] ) !!}</td>
+
                     </tr>
                     <tr>
                         <td>{!! Form::label('aoorder','Amount Of Order:') !!} </td>
@@ -59,22 +59,22 @@
                         <td align="left">{!! Form::submit('Pre-Order Product', ['class' => 'btn btn-success']) !!}</td>
                         {{--<td><button href="{{url('user/preOrder')}}" class="btn btn-danger">Cancel</button></td>--}}
                     </tr>
-
+                        @endif
                 </table>
                 </div>
-                <div class="col-sm-5 pull-right">
-                    <table class="table table-striped">
+                {{--<div class="col-sm-5 pull-right">--}}
+                    {{--<table class="table table-striped">--}}
 
-                        <tr>
-                            <td><b>Product In Our Website</b></td>
-                        </tr>
-                        @foreach($product as $product)
-                            <tr>
-                                <td>{{$product->name}}</td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
+                        {{--<tr>--}}
+                            {{--<td><b>Product In Our Website</b></td>--}}
+                        {{--</tr>--}}
+                        {{--@foreach($product as $product)--}}
+                            {{--<tr>--}}
+                                {{--<td>{{$product->name}}</td>--}}
+                            {{--</tr>--}}
+                        {{--@endforeach--}}
+                    {{--</table>--}}
+                {{--</div>--}}
                 {!! Form::close() !!}
             </div>
         </div>

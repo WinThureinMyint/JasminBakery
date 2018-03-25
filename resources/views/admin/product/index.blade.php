@@ -51,8 +51,21 @@
                                                                                                           class="btn btn-danger col-sm-2"
                                                                                                           value="Edit"></a>
                                             {!! Form::open(['method' =>'DELETE', 'action' => ['ProductsController@destroy',$product->id]]) !!}
-                                            <div class="form-group">
-                                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                            <div>
+
+                                                <button class="btn btn-danger col-sm-2" onclick="myFunction()">Delete</button>
+                                                <script>
+                                                    function myFunction() {
+                                                        var txt;
+                                                        if (confirm("Are You Sure.You Want to Delete!")) {
+                                                            txt = "del";
+                                                        } else {
+                                                            txt = "You pressed Cancel!";
+                                                        }
+                                                        document.getElementById("demo").innerHTML = txt;
+                                                    }
+                                                </script>
+                                                {{--{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}--}}
                                             </div>
                                             {!! Form::close() !!}
                                             {{--<a href="javascript:void(0);" class="btn btn-danger">Add to cart</a>--}}

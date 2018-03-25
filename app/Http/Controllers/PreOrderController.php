@@ -17,9 +17,9 @@ class PreOrderController extends Controller
      */
     public function index()
     {
-//        $product = DB::table('products')->pluck('name')->all();
+        $name = DB::table('products')->pluck('name')->all();
         $product = Product::all();
-        return view('user/preOrder', compact('product'));
+        return view('user/preOrder', compact('product','name'));
     }
 
     public function preHistory()
@@ -47,14 +47,15 @@ class PreOrderController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$name)
     {
 //        $qty = $request->get('aoorder');
 //        $total = $qty * 5 ;
         $porder = DB::table('pre_orders')
             ->join('products', 'products.id', '=', 'pre_orders.id')
             ->get();
-        $preOrder = PreOrder::create($request->all());
+        $serialized_array = serialize($name);
+        $preOrder = PreOrder::create($serialized_array);
         return view('user/preOrderSuccess', compact('preOrder', 'porder'));
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 use App\Rorder;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -37,7 +38,35 @@ class OrderController extends Controller
             ->join('users', 'orders.userID', '=', 'users.id')
             ->get();
 
+//        $orders = DB::table('orders')
+// ->where('orders','created_at',$date)
+//            ->get();
+
         return view('user/userOrder', compact('user', 'arr', 'orders'));
+    }
+
+    public function olderOrder()
+    {
+        $id = Auth::id();
+        $olderOrder = DB::table('orders')
+            ->select(DB::raw('*'))
+//            ->whereRaw('Date(created_at) = CURDATE()')
+//            ->select('created_at',$date)
+//            ->join('products', 'orders.itemID', '=', 'products.id')
+//            ->join('photos', 'products.photo_id', '=', 'photos.id')
+//            ->join('users', 'orders.userID', '=', 'users.id')
+            ->where('userID',$id)
+            ->get();
+
+//        $records = DB::table('orders')
+//            ->select(DB::raw('*'))
+//            ->whereRaw('Date(created_at) = CURDATE()')
+//            ->get();
+
+//        dd($olderOrder);
+//        $olderOrder = Order::all();
+//        dd($olderOrder);
+        return view('user/olderOrder',compact('olderOrder'));
     }
 
     public function preOrder()
